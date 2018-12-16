@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja" ng-app="myapp">
+<head>
+    <meta charset="UTF-8" />
+    <title>Angularの練習</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+    <script src="myscript.js"></script>
+    <style>
+        .even {
+            background:#ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>AngularJSの練習</h1>
+
+    <!--どのコントローラーを利用するかdivで記載 -->
+    <div ng-controller="MainController">
+        <p>
+            <input type="text" ng-model="query.name" />
+        </p>
+        <p>
+            {{25 * 500 |number}}
+        </p>
+        <p>
+            {{today|date:'yyyy-MM-dd'}}
+        </p>
+        <p>
+            {{users.length}} Users.
+        </p>
+        <ul>
+            <li ng-repeat="user in users|filter:query" ng-class-even="'odd'" ng-class-even="'even'">
+                {{$index+1}}{{$first}}{{$middle}}{{user.name|uppercase}}は{{user.score|number:1}}点
+            </li>
+        </ul>
+    </div>
+
+    <input type="text" ng-model="name" />
+    <p>
+        こんにちは！{{name}}
+    </p>
+    <p>
+        こんばんは！{{5*3}}
+    </p>
+</body>
+</html>
